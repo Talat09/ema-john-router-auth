@@ -1,23 +1,62 @@
-import logo from './logo.svg';
-import './App.css';
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import "./App.css";
+import About from "./components/About/About";
+import Inventory from "./components/Inventory/Inventory";
+import LogIn from "./components/LogIn/LogIn";
+import Orders from "./components/Orders/Orders";
+import Shipping from "./components/Shipping/Shipping";
+import Shop from "./components/Shop/Shop";
+import SignUp from "./components/SignUp/SignUp";
+import Main from "./layout/Main";
+import { productsAndCartLoader } from "./loaders/ProductsAndCartLoader";
+import PrivateRoutes from "./routes/PrivateRoutes";
 
 function App() {
+  const router = createBrowserRouter([
+    {
+      path: "/",
+      element: <Main></Main>,
+      children: [
+        {
+          path: "/",
+          loader: () => fetch("products.json"),
+          element: <Shop></Shop>,
+        },
+        {
+          path: "/orders",
+          loader: productsAndCartLoader,
+          element: <Orders></Orders>,
+        },
+        {
+          path: "/inventory",
+          element: <Inventory></Inventory>,
+        },
+        {
+          path: "/shipping",
+          element: (
+            <PrivateRoutes>
+              <Shipping></Shipping>
+            </PrivateRoutes>
+          ),
+        },
+        {
+          path: "about",
+          element: <About></About>,
+        },
+        {
+          path: "/login",
+          element: <LogIn></LogIn>,
+        },
+        {
+          path: "/signup",
+          element: <SignUp></SignUp>,
+        },
+      ],
+    },
+  ]);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <RouterProvider router={router}></RouterProvider>
     </div>
   );
 }

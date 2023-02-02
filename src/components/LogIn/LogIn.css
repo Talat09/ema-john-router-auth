@@ -1,0 +1,70 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap");
+.form-container {
+  width: 500px;
+  height: 700px;
+  background: #ffffff;
+  margin: 20px auto;
+  border: 1px solid #95a0a7;
+  border-radius: 8px;
+  box-shadow: -10px 10px bisque;
+}
+.form-div {
+  padding-left: 49px;
+}
+.form-title {
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 35px;
+  line-height: 42px;
+  /* identical to box height */
+  text-align: center;
+  letter-spacing: 0.0025em;
+  color: #2a414f;
+}
+.form-control {
+  margin-bottom: 21px;
+}
+.form-control label {
+  display: block;
+  font-family: lato;
+  font-size: 17px;
+  font-weight: 400px;
+  line-height: 20px;
+  margin-bottom: 10px;
+  letter-spacing: 0.0015em;
+  color: #2a414f;
+}
+.form-control input {
+  width: 415px;
+  height: 55px;
+  font-family: lato;
+  font-size: 1.5em;
+  padding-left: 7px;
+  border: 1px solid #95a0a7;
+  border-radius: 5px;
+}
+.btn-submit {
+  width: 415px;
+  height: 55px;
+  background: rgba(255, 153, 0, 0.3);
+  margin-top: 45px;
+  border: none;
+  border-radius: 5px;
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 21px;
+  line-height: 25px;
+  letter-spacing: 0.0015em;
+  color: #0e161a;
+}
+.btn-submit:hover {
+  background-color: orange;
+  color: white;
+  cursor: pointer;
+}
+.create-account-text {
+  color: rgba(255, 153, 0, 1);
+  text-decoration: none;
+}
